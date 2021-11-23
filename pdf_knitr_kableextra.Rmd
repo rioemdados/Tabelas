@@ -1,0 +1,45 @@
+---
+title: "COMO CRIAR TABELAS INCRÍVEIS NO R"
+date: "nov/2021"
+output: pdf_document
+header-includes:
+    - \usepackage{caption}
+    - \captionsetup[table]{name=Tabela}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Pacote knitr + kableExtra
+
+
+```{r, eval=FALSE}
+install.packages("knitr")
+install.packages("kableExtra")
+```
+
+```{r}
+library(knitr)
+library(kableExtra)
+```
+
+```{r}
+dt <- mtcars[1:5, 1:6]
+```
+
+```{r}
+dt %>%
+  kbl(booktabs = T,
+      caption = "Primeira Tabela") %>%
+  kable_classic(full_width = F, 
+                font_size = 12,
+                latex_options = c("hold_position"))
+```
+
+
+# Referências
+
+https://haozhu233.github.io/kableExtra/

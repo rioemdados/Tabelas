@@ -1,0 +1,46 @@
+---
+title: "TABELAS INTERATIVAS COM O PACOTE DT"
+date: "nov/2021"
+output:
+  html_document:
+    self_contained: false
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Pacote DT
+
+```{r, eval=FALSE}
+install.packages("DT")
+```
+
+```{r}
+library(DT)
+datatable(iris)
+```
+
+```{r}
+datatable(iris[1:5,],  
+          rownames = c("L1", "L2", "L3", "L4", "L5"),
+          caption = "Tabela 1: Exemplo de título", 
+          colnames = c("Var 1", "Var 2", "Var 3", "Var 4", "Var 5"))
+```
+
+```{r}
+datatable(iris, 
+          caption = "Tabela 1: Exemplo de título",
+          options = list(pageLength = 5, language = list(url = "//cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json")))
+
+```
+
+
+# Referências
+
+https://rstudio.github.io/DT/
+
+https://rstudio.github.io/DT/options.html
